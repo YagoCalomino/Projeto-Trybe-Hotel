@@ -74,5 +74,11 @@ public class IntegrationTest: IClassFixture<WebApplicationFactory<Program>>
         var response = await _clientTest.GetAsync(url);
         Assert.Equal(System.Net.HttpStatusCode.OK, response?.StatusCode);
     }
-
+    [Theory(DisplayName = "Testando a rota GET /hotel")]
+    [InlineData("/hotel")]
+    public async Task TestarRotaGetHotel(string url)
+    {
+        var resposta = await _clientTest.GetAsync(url);
+        Assert.Equal(System.Net.HttpStatusCode.OK, resposta?.StatusCode);
+    }
 }
